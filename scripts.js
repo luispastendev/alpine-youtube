@@ -16,5 +16,6 @@ const app = {
             title: 'dormir',
             active: false
         }
-    ]
+    ],
+
 };
