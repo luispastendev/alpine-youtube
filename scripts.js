@@ -17,5 +17,11 @@ const app = {
             active: false
         }
     ],
-
+    addTask() {
+        this.tasks.push({
+            id: this.tasks.length + 1,
+            title: this.$refs.new_task.value,
+            active: false
+        })
+    }
 };
