@@ -16,5 +16,24 @@ const app = {
             title: 'dormir',
             active: false
         }
-    ]
+    ],
+    editTask: '',
+    showTask(key) {
+        this.editTask = key;
+    },
+    closeEdit() {
+        this.editTask = '';
+    },
+    addTask() {
+
+        if (this.$refs.new_task.value.trim() === '') return;
+
+        this.tasks.push({
+            id: this.tasks.length + 1,
+            title: this.$refs.new_task.value,
+            active: false
+        });
+
+        this.$refs.new_task.value = '';
+    }
 };
