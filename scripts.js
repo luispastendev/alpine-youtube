@@ -46,14 +46,23 @@ const app = {
         this.showEdit = !this.showEdit;
     },
     cancelEdit() {
-        this.editTask = '';
+        this.closeEdit();
     },
     doTask(key) {
         this.tasks[key].active = !this.tasks[key].active;
     },
+    updateTask() {
+        this.tasks[this.editTask].title = this.$refs.edit_task.value;
+        this.closeEdit();
+    },
     deleteTask(key) {
-        this.editTask = '';
+        this.closeEdit()
         this.tasks.splice(key,1);
+    },
+    closeEdit() {
+        this.editTask = '';
     }
+
+    
 
 };

@@ -38,10 +38,10 @@
                 <template x-if="editTask !== ''">
                     <div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="task_name" :value="tasks[editTask].title" placeholder="Tarea...">
+                            <input type="text" class="form-control" id="task_name" :value="tasks[editTask]?.title" placeholder="Tarea..." x-ref="edit_task">
                         </div>
                         <button class="btn btn-light" @click="cancelEdit">Cancelar</button>
-                        <button class="btn btn-primary">Actualizar</button>
+                        <button class="btn btn-primary" @click="updateTask">Actualizar</button>
                     </div>
                 </template>
             </div>
