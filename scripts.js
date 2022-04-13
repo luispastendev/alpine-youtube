@@ -14,7 +14,7 @@ const app = {
         {
             id: 3,
             title: 'dormir',
-            active: false
+            active: true
         }
     ],
     editTask: '',
@@ -39,5 +39,21 @@ const app = {
     updateTask() {
         this.tasks[this.editTask].title = this.$refs.edit_task.value;
         this.closeEdit();
+    },
+    doTask(key) {
+        this.tasks[key].active = !this.tasks[key].active;
+    },
+    get calculateTasks() {
+        let counter = 0;
+        this.tasks.map(task => {
+            counter += !task.active ? 1 : 0;
+        });
+
+        if (counter <= 0) {
+            return "<span>Todas las tareas completadas 😁</span>";
+        }
+
+        return `<span>Tareas por realizar ${counter} de ${this.tasks.length}</span>`;
+
     }
 };
