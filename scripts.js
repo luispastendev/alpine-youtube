@@ -35,5 +35,9 @@ const app = {
         });
 
         this.$refs.new_task.value = '';
+    },
+    updateTask() {
+        this.tasks[this.editTask].title = this.$refs.edit_task.value;
+        this.closeEdit();
     }
 };
