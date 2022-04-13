@@ -21,7 +21,7 @@
                                 <div class="">
                                     <strong x-text="task.id"></strong>.
                                     <span x-text="task.title"></span><br>
-                                    <a class="text-danger">Eliminar</a> | 
+                                    <a class="text-danger" @click="deleteTask(key)">Eliminar</a> | 
                                     <a class="text-primary" @click="showTask(key)">Editar</a>
                                 </div>
                             </div>
@@ -29,6 +29,9 @@
                                 <input class="form-check-input" type="checkbox" role="switch" @change="doTask(key)" :checked="task.active">
                             </div>
                         </li>
+                    </template>
+                    <template x-if="tasks.length === 0">
+                        <p>No existen tareas.</p>
                     </template>
                 </ul>
             </div>

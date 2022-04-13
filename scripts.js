@@ -29,7 +29,7 @@ const app = {
         if (this.$refs.new_task.value.trim() === '') return;
 
         this.tasks.push({
-            id: this.tasks.length + 1,
+            id: this.tasks.length > 0 ? Math.max(...this.tasks.map(task => task.id)) + 1 : 1,
             title: this.$refs.new_task.value,
             active: false
         });
@@ -42,6 +42,9 @@ const app = {
     },
     doTask(key) {
         this.tasks[key].active = !this.tasks[key].active;
+    },
+    deleteTask(key) {
+        this.tasks.splice(key,1);
     },
     get calculateTasks() {
         let counter = 0;
