@@ -31,6 +31,9 @@
                             </div>
                         </li>
                     </template>
+                    <template x-if="tasks.length === 0">
+                        <p>No existen tareas.</p>
+                    </template>
                 </ul>
             </div>
             

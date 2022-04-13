@@ -63,6 +63,4 @@ const app = {
         this.editTask = '';
     }
 
-    
-
 };
