@@ -18,6 +18,18 @@ const app = {
         }
     ],
     editTask: '',
+    get calcTasks() {
+        let counter = 0;
+        this.tasks.map(task => {
+            counter += !task.active ? 1 : 0;
+        });
+
+        if (counter <= 0) {
+            return "<span>Todas la tareas completadas 😁</span>"
+        }
+
+        return `<span>Tareas por realizar: ${counter} de ${this.tasks.length}</span>`;
+    },
     addTask() {
 
         if ((this.$refs.new_task.value).trim() === '') return
@@ -25,8 +37,9 @@ const app = {
         this.tasks.push({
             id: this.tasks.length + 1,
             title: this.$refs.new_task.value,
-            active: false
+            active: false 
         })
+        
         this.$refs.new_task.value = '';
     },
     toggleEdit() {
@@ -34,5 +47,9 @@ const app = {
     },
     cancelEdit() {
         this.editTask = '';
+    },
+    doTask(key) {
+        this.tasks[key].active = !this.tasks[key].active;
     }
+
 };

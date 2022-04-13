@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch">
+                                <input class="form-check-input" type="checkbox" role="switch" :checked="task.active" @change="doTask(key)">
                             </div>
                         </li>
                     </template>
@@ -52,7 +52,7 @@
 
         <hr>
         
-        <h4>Tareas por realizar: <span>3</span></h4>
+        <h4 x-html="calcTasks"></h4>
 
         <div class="mt-5">
             <div class="mt-3">
@@ -60,6 +60,7 @@
             </div>
             <button class="btn btn-primary mt-2" @click="addTask">Agregar</button>
         </div>
+
     </div>
 
 <script src="./scripts.js"></script>
